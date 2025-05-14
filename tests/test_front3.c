@@ -2,11 +2,11 @@
 #include "include/minunit.h"
 
 MU_TEST(test_front3_chocolate) {
-    mu_assert_str_eq("ChoChoCho", front3("Chocolate"));
+    mu_assert_string_eq("ChoChoCho", front3("Chocolate"));
 }
 
 MU_TEST(test_front3_single) {
-    mu_assert_str_eq("aaa", front3("a"));
+    mu_assert_string_eq("aaa", front3("a"));
 }
 
 MU_TEST_SUITE(suite) {
@@ -17,5 +17,5 @@ MU_TEST_SUITE(suite) {
 int main(void) {
     MU_RUN_SUITE(suite);
     MU_REPORT();
-    return minunit_failcount == 0 ? 0 : 1;
+    return MU_EXIT_CODE;
 }

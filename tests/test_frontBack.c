@@ -2,11 +2,11 @@
 #include "include/minunit.h"
 
 MU_TEST(test_frontBack_swapped) {
-    mu_assert_str_eq("eodc", frontBack("code"));
+    mu_assert_string_eq("eodc", frontBack("code"));
 }
 
 MU_TEST(test_frontBack_same) {
-    mu_assert_str_eq("a", frontBack("a"));
+    mu_assert_string_eq("a", frontBack("a"));
 }
 
 MU_TEST_SUITE(suite) {
@@ -17,5 +17,5 @@ MU_TEST_SUITE(suite) {
 int main(void) {
     MU_RUN_SUITE(suite);
     MU_REPORT();
-    return minunit_failcount == 0 ? 0 : 1;
+    return MU_EXIT_CODE;
 }

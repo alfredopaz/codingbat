@@ -22,5 +22,5 @@ MU_TEST_SUITE(suite) {
 int main(void) {
     MU_RUN_SUITE(suite);
     MU_REPORT();
-    return minunit_failcount == 0 ? 0 : 1;
+    return MU_EXIT_CODE;
 }

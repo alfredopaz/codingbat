@@ -2,11 +2,11 @@
 #include "include/minunit.h"
 
 MU_TEST(test_notString_with_not) {
-    mu_assert_str_eq("not bad", notString("not bad"));
+    mu_assert_string_eq("not bad", notString("not bad"));
 }
 
 MU_TEST(test_notString_without_not) {
-    mu_assert_str_eq("not good", notString("good"));
+    mu_assert_string_eq("not good", notString("good"));
 }
 
 MU_TEST_SUITE(suite) {
@@ -17,5 +17,5 @@ MU_TEST_SUITE(suite) {
 int main(void) {
     MU_RUN_SUITE(suite);
     MU_REPORT();
-    return minunit_failcount == 0 ? 0 : 1;
+    return MU_EXIT_CODE;
 }

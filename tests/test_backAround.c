@@ -2,11 +2,11 @@
 #include "include/minunit.h"
 
 MU_TEST(test_backAround_abc) {
-    mu_assert_str_eq("cabca", backAround("abc"));
+    mu_assert_string_eq("cabca", backAround("abc"));
 }
 
 MU_TEST(test_backAround_a) {
-    mu_assert_str_eq("aaa", backAround("a"));
+    mu_assert_string_eq("aaa", backAround("a"));
 }
 
 MU_TEST_SUITE(suite) {
@@ -17,5 +17,5 @@ MU_TEST_SUITE(suite) {
 int main(void) {
     MU_RUN_SUITE(suite);
     MU_REPORT();
-    return minunit_failcount == 0 ? 0 : 1;
+    return MU_EXIT_CODE;
 }
