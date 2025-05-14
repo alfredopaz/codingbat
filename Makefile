@@ -1,23 +1,20 @@
-# Compilador y flags
 CC      = gcc
-CFLAGS = -Wall -Wextra -std=c11 -D_POSIX_C_SOURCE=199309L -I tests
+CFLAGS  = -Wall -Wextra -std=c11 -D_POSIX_C_SOURCE=199309L -I tests
 
-# Fuentes de implementación y tests
-SRC      := $(wildcard warmup1/*.c)
+# Find all test source files and corresponding binaries
 TEST_SRC := $(wildcard tests/test_*.c)
+TEST_BIN := $(patsubst tests/test_%.c,test_%,$(TEST_SRC))
 
-# Nombre del ejecutable de tests
-TARGET   = test_suite
+.PHONY: all clean
 
-# Regla por defecto: compila y ejecuta todos los tests
-all: $(TARGET)
+# Default target: build and run all tests
+all: $(TEST_BIN)
 
-# Cómo generar el binario y ejecutar la suite
-$(TARGET): $(SRC) $(TEST_SRC)
-	$(CC) $(CFLAGS) $^ -o $@
-	./$(TARGET)
+# Compile each test source to its own binary and run it
+test_%: tests/test_%.c
+	$(CC) $(CFLAGS) $< -o $@
+	./$@
 
-# Limpieza de artefactos
+# Remove all test binaries
 clean:
-	rm -f $(TARGET)
-
+	rm -f $(TEST_BIN)
