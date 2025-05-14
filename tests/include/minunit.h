@@ -49,6 +49,10 @@
 #include <sys/times.h>
 #include <string.h>
 
+#ifndef clockid_t
+typedef int clockid_t;
+#endif
+
 #if defined(__MACH__) && defined(__APPLE__)
 #include <mach/mach.h>
 #include <mach/mach_time.h>
