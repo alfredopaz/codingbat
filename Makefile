@@ -1,6 +1,6 @@
 # Compilador y flags
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c11 -I tests/include
+CFLAGS  = -Wall -Wextra -std=c11 -I tests
 
 # Fuentes de implementación y tests
 SRC      := $(wildcard warmup1/*.c)
